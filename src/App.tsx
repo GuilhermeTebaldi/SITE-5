@@ -1,194 +1,112 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { FaWhatsapp, FaInstagram, FaTimes } from "react-icons/fa";
 
-export default function EcoLandingPage() {
+export default function CoxinhaLandingPage() {
+  const [showGallery, setShowGallery] = useState(false);
+
+  const galleryImages = [
+    "https://i.pinimg.com/736x/0e/57/3a/0e573abf0eb237f0e0acdba8e78259b0.jpg",
+    "https://i.pinimg.com/474x/af/c5/4d/afc54d46d2698a70cba6ed9d6cfe69d2.jpg",
+    "https://i.pinimg.com/736x/f2/65/2b/f2652beb1bc93bf4c6fc1745e33f7dd0.jpg",
+    "https://i.pinimg.com/736x/a9/c4/d7/a9c4d7ee0e30e4ddb019fec2079c2e21.jpg",
+    "https://i.pinimg.com/736x/2c/16/b6/2c16b665654c9cf49a113a827e110125.jpg",
+    "https://i.pinimg.com/736x/0b/04/8f/0b048f9e1dee49be463aa2695234c4c2.jpg",
+  ];
+
   return (
-    <div
-      className="bg-cover bg-center bg-no-repeat font-sans text-gray-900"
-      style={{
-        backgroundImage:
-          "url('https://www.transparenttextures.com/patterns/symphony.png')",
-      }}
-    >
-      {/* Top Bar */}
-      <div className="flex items-center justify-between bg-white/80 px-4 py-2 text-sm text-gray-700 backdrop-blur-md">
-        <div>
-          <span>📍 New York, NY</span>
-        </div>
-        <div className="space-x-4">
-          <span>📞 +1 (800) 123-4567</span>
-          <span>✉️ contact@gainlove.org</span>
-        </div>
-      </div>
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-yellow-100 to-orange-200 pb-20">
+      {/* WhatsApp Button */}
+      <a
+        href="https://wa.me/5599999999999"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-4 right-4 z-50 rounded-full bg-green-500 p-4 text-white shadow-lg transition duration-300 hover:bg-green-600"
+      >
+        <FaWhatsapp size={28} />
+      </a>
+
+      {/* Instagram Button */}
+      <a
+        href="https://instagram.com/seuusuario"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-20 right-4 z-50 rounded-full bg-pink-500 p-4 text-white shadow-lg transition duration-300 hover:bg-pink-600"
+      >
+        <FaInstagram size={28} />
+      </a>
 
       {/* Hero Section */}
-      <section className="relative flex flex-col-reverse items-center gap-10 px-4 py-20 md:flex-row md:px-20">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://www.transparenttextures.com/patterns/arches.png"
-            alt="decorative bg"
-            className="h-full w-full object-cover opacity-10"
-          />
-        </div>
-        <div className="z-10 w-full text-center md:w-1/2 md:text-left">
+      <section className="flex flex-col items-center justify-between px-6 py-16 md:flex-row md:px-20">
+        <div className="text-center md:w-1/2 md:text-left">
           <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="mb-4 text-4xl font-bold md:text-5xl"
+            initial={{ y: -40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl font-extrabold text-orange-700 md:text-6xl"
           >
-            Justice begins where <br /> inequality ends
+            A melhor <span className="text-orange-500">Coxinha</span> da sua
+            vida é na <span className="text-orange-600">Coxiê</span>!
           </motion.h1>
-          <p className="mb-6 text-gray-600">
-            We're building a world where everyone has the power to shape their
-            lives.
+          <p className="mt-6 text-lg text-orange-800">
+            Crocante por fora, cremosa por dentro. Peça agora no WhatsApp e
+            receba onde estiver.
           </p>
-          <button className="rounded-full bg-black px-6 py-3 font-medium text-white">
-            Donate Now
+          <motion.a
+            href="https://wa.me/5599999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            className="mt-8 inline-block rounded-xl bg-orange-500 px-6 py-3 text-lg font-semibold text-white shadow-lg hover:bg-orange-600"
+          >
+            Pedir no WhatsApp
+          </motion.a>
+        </div>
+
+        {/* Imagem da Coxinha */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="mt-10 flex cursor-pointer justify-center md:mt-0 md:w-1/2"
+          onClick={() => setShowGallery(true)}
+        >
+          <img
+            src="https://i.pinimg.com/736x/0e/57/3a/0e573abf0eb237f0e0acdba8e78259b0.jpg"
+            alt="Coxinha deliciosa"
+            className="w-72 drop-shadow-2xl md:w-96"
+          />
+        </motion.div>
+      </section>
+
+      {/* Galeria Modal */}
+      {showGallery && (
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/80 px-4 py-8">
+          <button
+            className="absolute right-4 top-4 text-2xl text-white hover:text-red-400"
+            onClick={() => setShowGallery(false)}
+          >
+            <FaTimes />
           </button>
-        </div>
-        <div className="z-10 w-full md:w-1/3">
-          <div className="grid grid-cols-2 grid-rows-2 gap-2">
-            <img
-              src="https://i.pinimg.com/736x/05/bb/75/05bb75fa5d7eaf8dcfcd7ff05e1e9c02.jpg"
-              alt="Part 1"
-              className="col-span-2 h-32 w-full rounded-xl object-cover"
-            />
-            <img
-              src="https://i.pinimg.com/736x/fa/bd/a7/fabda724bdb3d494680229a71fec3b01.jpg"
-              alt="Part 2"
-              className="h-32 w-full rounded-xl object-cover"
-            />
-            <img
-              src="https://i.pinimg.com/736x/fa/bd/a7/fabda724bdb3d494680229a71fec3b01.jpg"
-              alt="Part 3"
-              className="h-32 w-full rounded-xl object-cover"
-            />
+          <div className="grid w-full max-w-4xl grid-cols-1 gap-4 rounded-2xl bg-white/10 p-4 backdrop-blur-lg sm:grid-cols-2 md:grid-cols-3">
+            {galleryImages.map((src, index) => (
+              <motion.img
+                key={index}
+                src={src}
+                alt={`Coxinha ${index + 1}`}
+                className="rounded-xl shadow-xl transition duration-300 hover:scale-105"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1 * index }}
+              />
+            ))}
           </div>
         </div>
-      </section>
+      )}
 
-      {/* Programs Section */}
-      <section className="px-6 py-20 text-center md:px-20">
-        <h2 className="mb-4 text-3xl font-bold">Our Programs</h2>
-        <p className="mb-10 text-gray-600">
-          It is through resources that you are able to give and get out of
-          everything now. It is not essential to reinvent or go tired.
-        </p>
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-lg bg-white p-6 shadow-md">
-            <img
-              src="https://i.pinimg.com/736x/05/bb/75/05bb75fa5d7eaf8dcfcd7ff05e1e9c02.jpg"
-              alt="Anti Poverty"
-              className="mb-4 h-48 w-full rounded-xl object-cover"
-            />
-            <h3 className="mb-2 text-xl font-semibold">
-              Anti Poverty Programs & Services
-            </h3>
-            <p className="text-sm text-gray-600">
-              Programs and services designed to reduce the effects of and
-              eliminate the root causes of poverty.
-            </p>
-            <button className="mt-4 font-medium text-orange-600">
-              Learn More
-            </button>
-          </div>
-          <div className="rounded-lg bg-white p-6 shadow-md">
-            <img
-              src="https://i.pinimg.com/736x/fa/bd/a7/fabda724bdb3d494680229a71fec3b01.jpg"
-              alt="Family Programs"
-              className="mb-4 h-48 w-full rounded-xl object-cover"
-            />
-            <h3 className="mb-2 text-xl font-semibold">
-              Family & Community Programs
-            </h3>
-            <p className="text-sm text-gray-600">
-              Programs designed to educate and engage all ages of the community,
-              help resolve issues.
-            </p>
-            <button className="mt-4 font-medium text-orange-600">
-              Learn More
-            </button>
-          </div>
-          <div className="rounded-lg bg-white p-6 shadow-md">
-            <img
-              src="https://i.pinimg.com/736x/fa/bd/a7/fabda724bdb3d494680229a71fec3b01.jpg"
-              alt="Teen Programs"
-              className="mb-4 h-48 w-full rounded-xl object-cover"
-            />
-            <h3 className="mb-2 text-xl font-semibold">Teen Programs</h3>
-            <p className="text-sm text-gray-600">
-              Diverse relatable resources content to break generational barriers
-              and build bright futures.
-            </p>
-            <button className="mt-4 font-medium text-orange-600">
-              Learn More
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Fundraiser Section */}
-      <section className="grid items-center gap-10 bg-[#fef7ed] px-6 py-20 md:grid-cols-2 md:px-20">
-        <div className="grid grid-cols-3 gap-2">
-          <img
-            src="https://i.pinimg.com/736x/fa/bd/a7/fabda724bdb3d494680229a71fec3b01.jpg"
-            alt="Child Fundraiser"
-            className="h-28 w-full rounded-full object-cover"
-          />
-          <img
-            src="https://i.pinimg.com/736x/05/bb/75/05bb75fa5d7eaf8dcfcd7ff05e1e9c02.jpg"
-            alt="Child Fundraiser"
-            className="h-28 w-full rounded-full object-cover"
-          />
-          <img
-            src="https://i.pinimg.com/736x/fa/bd/a7/fabda724bdb3d494680229a71fec3b01.jpg"
-            alt="Child Fundraiser"
-            className="h-28 w-full rounded-full object-cover"
-          />
-        </div>
-        <div>
-          <h3 className="mb-2 text-xl font-semibold">
-            2020 fundraiser champions for social justice
-          </h3>
-          <p className="text-gray-700">
-            Help raise $30,000 for the community of Stonewood Cameroon. We’ll
-            launch a specific campaign educating the local population and
-            working with leaders on education and equality awareness for a
-            brighter future.
-          </p>
-        </div>
-      </section>
-
-      {/* Give a Future Section */}
-      <section className="grid items-center gap-10 px-6 py-20 md:grid-cols-2 md:px-20">
-        <div>
-          <h2 className="mb-4 text-3xl font-bold">
-            Give a future full of choices
-          </h2>
-          <p className="mb-6 text-gray-700">
-            Every child deserves a healthy start, the opportunity to learn and
-            protection from harm. Yet, millions of children around the world are
-            denied these basic rights. Help us change that.
-          </p>
-          <div className="flex gap-4">
-            <button className="rounded-full bg-orange-500 px-6 py-3 font-medium text-white hover:bg-orange-600">
-              Donate
-            </button>
-            <button className="rounded-full bg-gray-200 px-6 py-3 font-medium text-gray-900 hover:bg-gray-300">
-              Learn More
-            </button>
-          </div>
-        </div>
-        <img
-          src="https://i.pinimg.com/736x/05/bb/75/05bb75fa5d7eaf8dcfcd7ff05e1e9c02.jpg"
-          alt="Child future"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-      </section>
-
-      {/* Footer */}
-      <footer className="mt-10 bg-gray-900 py-6 text-center text-white">
-        <p>&copy; 2025 Gainlove. All rights reserved.</p>
+      {/* Rodapé fixo */}
+      <footer className="fixed bottom-0 left-0 z-40 w-full bg-yellow-50 py-4 text-center text-sm text-orange-700 shadow-md">
+        © 2025 Coxiê. Feito com amor e recheio ♥ | Feito por Lisa Tebaldi
       </footer>
     </div>
   );
