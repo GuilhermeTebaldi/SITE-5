@@ -111,8 +111,8 @@ export default function CoxinhaLandingPage() {
       )}
 
       {/* Rodapé fixo */}
-      <footer className="fixed bottom-0 left-0 z-40 w-full bg-yellow-50 py-4 text-center text-sm text-orange-700 shadow-md">
-        © 2025 Coxiê. Feito com amor e recheio ♥ | Feito por Lisa Tebaldi
+      <footer className="fixed bottom-0 left-0 z-40 w-full bg-yellow-50 py-4 text-center text-sm text-orange-500 shadow-md">
+        © 2025 Coxiê. Feito com amor e recheio ♥
       </footer>
     </div>
   );
