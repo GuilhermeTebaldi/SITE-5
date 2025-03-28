@@ -81,14 +81,20 @@ export default function CoxinhaLandingPage() {
 
       {/* Galeria Modal */}
       {showGallery && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-y-auto bg-black/80 px-4 py-8">
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/80 px-4 py-8"
+          onClick={() => setShowGallery(false)}
+        >
           <button
             className="sticky right-4 top-4 z-50 self-end text-2xl text-white hover:text-red-400"
             onClick={() => setShowGallery(false)}
           >
             <FaTimes />
           </button>
-          <div className="mt-4 grid w-full max-w-4xl grid-cols-1 gap-4 rounded-2xl bg-white/10 p-4 backdrop-blur-lg sm:grid-cols-2 md:grid-cols-3">
+          <div
+            className="mb-24 mt-4 grid w-full max-w-4xl grid-cols-1 gap-4 rounded-2xl bg-white/10 p-4 backdrop-blur-lg sm:grid-cols-2 md:grid-cols-3"
+            onClick={(e) => e.stopPropagation()}
+          >
             {galleryImages.map((src, index) => (
               <motion.img
                 key={index}
