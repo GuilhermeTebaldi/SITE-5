@@ -15,10 +15,10 @@ export default function CoxinhaLandingPage() {
   ];
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-yellow-100 to-orange-200 pb-20">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-yellow-100 to-orange-200">
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/5599999999999"
+        href="https://wa.me/5549988401271?text=Quero%20a%20melhor%20coxinha%20do%20Brasil!"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 z-50 rounded-full bg-green-500 p-4 text-white shadow-lg transition duration-300 hover:bg-green-600"
@@ -28,7 +28,7 @@ export default function CoxinhaLandingPage() {
 
       {/* Instagram Button */}
       <a
-        href="https://instagram.com/seuusuario"
+        href="https://www.instagram.com/macaxeira_oficial_?igsh=NjMwZHpvbnM5N3p0"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-20 right-4 z-50 rounded-full bg-pink-500 p-4 text-white shadow-lg transition duration-300 hover:bg-pink-600"
@@ -37,7 +37,7 @@ export default function CoxinhaLandingPage() {
       </a>
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-between px-6 py-16 md:flex-row md:px-20">
+      <section className="flex flex-col items-center justify-between px-6 py-16 pb-20 md:flex-row md:px-20">
         <div className="text-center md:w-1/2 md:text-left">
           <motion.h1
             initial={{ y: -40, opacity: 0 }}
@@ -53,7 +53,7 @@ export default function CoxinhaLandingPage() {
             receba onde estiver.
           </p>
           <motion.a
-            href="https://wa.me/5599999999999"
+            href="https://wa.me/5549988401271?text=Quero%20a%20melhor%20coxinha%20do%20Brasil!"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
@@ -81,14 +81,14 @@ export default function CoxinhaLandingPage() {
 
       {/* Galeria Modal */}
       {showGallery && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/80 px-4 py-8">
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-y-auto bg-black/80 px-4 py-8">
           <button
-            className="absolute right-4 top-4 text-2xl text-white hover:text-red-400"
+            className="sticky right-4 top-4 z-50 self-end text-2xl text-white hover:text-red-400"
             onClick={() => setShowGallery(false)}
           >
             <FaTimes />
           </button>
-          <div className="grid w-full max-w-4xl grid-cols-1 gap-4 rounded-2xl bg-white/10 p-4 backdrop-blur-lg sm:grid-cols-2 md:grid-cols-3">
+          <div className="mt-4 grid w-full max-w-4xl grid-cols-1 gap-4 rounded-2xl bg-white/10 p-4 backdrop-blur-lg sm:grid-cols-2 md:grid-cols-3">
             {galleryImages.map((src, index) => (
               <motion.img
                 key={index}
